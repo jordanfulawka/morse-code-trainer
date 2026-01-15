@@ -1,6 +1,6 @@
 import { useMorseInput } from '../hooks/useMorseInput';
 import MorseInput from './MorseInput';
-import SignelDisplay from './SignelDisplay';
+import SignalDisplay from './SignalDisplay';
 
 function MorseTrainer() {
   const { isPressing, sequence, handlePressStart, handlePressEnd } =
@@ -12,7 +12,7 @@ function MorseTrainer() {
         onPressStart={handlePressStart}
         onPressEnd={handlePressEnd}
       />
-      <SignelDisplay sequence={sequence} />
+      <SignalDisplay sequence={sequence} />
     </div>
   );
 }
