@@ -1,29 +1,27 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 function MorseInput({ isPressing, onPressStart, onPressEnd }) {
-  console.log('morse input!');
-  useEffect(() => {
-    const down = (e) => e.code === 'Space' && onPressStart();
-    const up = (e) => e.code === 'Space' && onPressEnd();
+  // useEffect(() => {
+  //   const down = (e) => e.code === 'Space' && onPressStart();
+  //   const up = (e) => e.code === 'Space' && onPressEnd();
 
-    window.addEventListener('keydown', down);
-    window.addEventListener('keyup', up);
+  //   window.addEventListener('keydown', down);
+  //   window.addEventListener('keyup', up);
 
-    return () => {
-      window.removeEventListener('keydown', down);
-      window.removeEventListener('keyup', up);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('keydown', down);
+  //     window.removeEventListener('keyup', up);
+  //   };
+  // }, []);
 
   return (
     <button
-      className={`w-32 h-32 rounded-full ${
-        isPressing ? 'bg-blue-600' : 'bg-blue-300'
-      }`}
+      className={`bg-gray-800 hover:bg-gray-600 text-white font-bold py-4 px-6 rounded-full shadow-lg transform active:scale-95 transition-transform duration-150
+        ${isPressing ? 'bg-red-600' : ''}`}
       onMouseDown={onPressStart}
       onMouseUp={onPressEnd}
     >
-      PRESS HERE
+      Press
     </button>
   );
 }

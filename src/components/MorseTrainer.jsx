@@ -3,16 +3,16 @@ import MorseInput from './MorseInput';
 import SignalDisplay from './SignalDisplay';
 
 function MorseTrainer() {
-  const { isPressing, sequence, handlePressStart, handlePressEnd } =
+  const { isPressing, inputSequence, handlePressStart, handlePressEnd } =
     useMorseInput();
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center'>
       <MorseInput
         isPressing={isPressing}
         onPressStart={handlePressStart}
         onPressEnd={handlePressEnd}
       />
-      <SignalDisplay sequence={sequence} />
+      <SignalDisplay inputSequence={inputSequence} />
     </div>
   );
 }
