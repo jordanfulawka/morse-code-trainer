@@ -2,21 +2,25 @@ import { useEffect } from 'react';
 import { MORSE_MAP } from '../lib/MorseMap';
 
 function Prompt({ index, inputSequence, setIndex, resetInput }) {
-  const entries = Object.entries(MORSE_MAP);
-  const [key, value] = entries[index];
-  const chars = value.split('');
+  const text = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const morse = text.split('').map((char) => {
+    return MORSE_MAP[char.toLowerCase()];
+  });
+  const chars = morse[index].split('');
 
   useEffect(() => {
     if (inputSequence.length === chars.length) {
-      if (inputSequence === value) {
+      if (inputSequence === morse[index]) {
         setIndex((prev) => prev + 1);
       }
       resetInput();
     }
-  }, [inputSequence, chars, value, setIndex, entries.length, resetInput]);
+  }, [inputSequence, chars, setIndex, resetInput, index, morse]);
+
+  console.log(index);
   return (
     <>
-      <h1 className='text-6xl font-bold'>{key}</h1>
+      <h1 className='text-6xl font-bold'>{text[index]}</h1>
 
       <h1 className='text-6xl font-bold'>
         {chars.map((char, charIndex) => {

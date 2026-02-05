@@ -20,7 +20,6 @@ export function useMorseInput() {
     console.log('handle press end caled', performance.now());
     const duration = performance.now() - pressStart.current;
     const symbol = duration < 150 ? '.' : '-';
-    console.log(duration);
     setInputSequence((prev) => prev + symbol);
     setIsPressing(false);
   }, []);
@@ -40,7 +39,7 @@ export function useMorseInput() {
       window.removeEventListener('keydown', down);
       window.removeEventListener('keyup', up);
     };
-  }, []);
+  }, [handlePressEnd]);
 
   return {
     isPressing,
